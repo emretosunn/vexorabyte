@@ -14,8 +14,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Vexorabyte",
-  description: "Vexorabyte modern uygulamalar gelistirir.",
+  title: "vexorabyte",
+  description: "vexorabyte modern uygulamalar gelistirir.",
+  icons: {
+    icon: "/icon.svg?v=2",
+    shortcut: "/icon.svg?v=2",
+    apple: "/icon.svg?v=2",
+  },
 };
 
 export default function RootLayout({

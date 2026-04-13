@@ -22,7 +22,7 @@ export function HomePageClient({ locale }: HomePageClientProps) {
           careersBody:
             "Şu an için aktif bir iş ilanımız bulunmamaktadır. Ancak potansiyel iş birlikleri için CV'nizi her zaman",
           careersFooter: "Şu an ekibimiz dolu ama gelecekteki fırsatlar için bizi takipte kalın.",
-          badge: "Vexorabyte Uygulaması",
+          badge: "vexorabyte uygulaması",
           detail: "Detayları Gör",
         }
       : {
@@ -33,7 +33,7 @@ export function HomePageClient({ locale }: HomePageClientProps) {
           careersBody:
             "We do not have an active job posting at the moment. However, you can always send your CV for future opportunities to",
           careersFooter: "Our team is currently full, but stay tuned for future opportunities.",
-          badge: "Vexorabyte App",
+          badge: "vexorabyte app",
           detail: "View Details",
         };
 
@@ -80,8 +80,8 @@ export function HomePageClient({ locale }: HomePageClientProps) {
           <h2 className="mt-5 text-4xl font-semibold text-white md:text-5xl">{copy.careersTitle}</h2>
           <p className="mt-6 text-lg leading-8 text-zinc-300">
             {copy.careersBody}{" "}
-            <a href="mailto:info@vexorabyte.com" className="text-zinc-200 underline decoration-zinc-500 underline-offset-4">
-              info@vexorabyte.com
+            <a href="mailto:vexorabyte@gmail.com" className="text-zinc-200 underline decoration-zinc-500 underline-offset-4">
+              vexorabyte@gmail.com
             </a>{" "}
             {locale === "tr" ? "adresine gönderebilirsiniz." : "."}
           </p>
