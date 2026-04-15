@@ -43,11 +43,11 @@ export function HomePageClient({ locale }: HomePageClientProps) {
     <main className="relative mx-auto w-full max-w-6xl px-6 md:px-10">
       <div className="pointer-events-none absolute -left-20 top-40 h-64 w-64 rounded-full bg-violet-700/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-10 top-[34rem] h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
-      <header className="fixed inset-x-0 top-4 z-30 mx-auto flex w-[calc(100%-2rem)] max-w-6xl items-center justify-between rounded-2xl border border-zinc-700/60 bg-zinc-900/35 px-5 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl md:px-8">
-        <Link href={`/?lang=${locale}`} className="text-xl font-semibold tracking-wide text-zinc-100 [font-family:var(--font-logo)]">
+      <header className="fixed inset-x-0 top-4 z-30 mx-auto flex w-[calc(100%-2rem)] max-w-6xl flex-wrap items-center justify-between gap-3 rounded-2xl border border-zinc-700/60 bg-zinc-900/35 px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl md:px-8">
+        <Link href={`/?lang=${locale}`} className="text-lg font-semibold tracking-wide text-zinc-100 [font-family:var(--font-logo)] md:text-xl">
           vexorabyte
         </Link>
-        <nav className="flex items-center gap-5 text-sm uppercase tracking-[0.2em] text-zinc-300">
+        <nav className="flex w-full items-center justify-between gap-3 text-xs uppercase tracking-[0.12em] text-zinc-300 sm:w-auto sm:justify-end sm:gap-5 sm:text-sm sm:tracking-[0.2em]">
           <Link href={`/?lang=${locale}#apps`} className="transition hover:text-white">
             {copy.apps}
           </Link>
@@ -58,7 +58,7 @@ export function HomePageClient({ locale }: HomePageClientProps) {
         </nav>
       </header>
 
-      <motion.section initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex min-h-screen flex-col items-center justify-center pt-16 text-center">
+      <motion.section initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex min-h-screen flex-col items-center justify-center pt-28 text-center md:pt-16">
         <TypewriterBrand />
       </motion.section>
 

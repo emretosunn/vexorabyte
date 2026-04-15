@@ -1,7 +1,18 @@
+import Link from "next/link";
+
 export default function VellumPrivacyPage() {
   return (
-    <main className="mx-auto min-h-screen w-full max-w-4xl px-6 py-16 md:px-10">
-      <article className="rounded-3xl border border-zinc-800 bg-zinc-950/70 p-8 text-zinc-200 backdrop-blur-sm md:p-10">
+    <main className="mx-auto min-h-screen w-full max-w-4xl px-6 py-12 md:px-10">
+      <header className="fixed inset-x-0 top-4 z-30 mx-auto flex w-[calc(100%-2rem)] max-w-4xl flex-wrap items-center justify-between gap-3 rounded-2xl border border-zinc-700/60 bg-zinc-900/35 px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl md:px-6">
+        <Link href="/apps/vellum?lang=tr" className="rounded-full border border-zinc-700 px-3 py-2 text-xs text-zinc-200 transition hover:border-zinc-500 hover:text-zinc-100 sm:px-4 sm:text-sm">
+          Vellum
+        </Link>
+        <Link href="/?lang=tr#apps" className="rounded-full border border-zinc-700 px-3 py-2 text-xs text-zinc-200 transition hover:border-zinc-500 hover:text-zinc-100 sm:px-4 sm:text-sm">
+          Ana Sayfa
+        </Link>
+      </header>
+
+      <article className="mt-20 rounded-3xl border border-zinc-800 bg-zinc-950/70 p-6 text-zinc-200 backdrop-blur-sm md:p-10">
         <h1 className="text-3xl font-semibold text-white md:text-4xl">Vellum Gizlilik Politikası</h1>
         <p className="mt-3 text-sm text-zinc-400">Son Güncelleme Tarihi: 15 Nisan 2026</p>
 
