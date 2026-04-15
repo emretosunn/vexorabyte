@@ -32,6 +32,7 @@ export default async function AppDetailPage({ params, searchParams }: AppDetailP
           home: "Ana Sayfa",
           careers: "Kariyer",
           playStore: "Play Store'da İncele",
+          privacy: "Gizlilik Politikası",
           features: "Özellikler",
           shots: "Play Store Görselleri",
         }
@@ -39,6 +40,7 @@ export default async function AppDetailPage({ params, searchParams }: AppDetailP
           home: "Home",
           careers: "Careers",
           playStore: "View on Play Store",
+          privacy: "Privacy Policy",
           features: "Features",
           shots: "Play Store Screenshots",
         };
@@ -70,6 +72,14 @@ export default async function AppDetailPage({ params, searchParams }: AppDetailP
           >
             {copy.playStore}
           </a>
+          {app.slug === "vellum" ? (
+            <Link
+              href="/vellum/privacy"
+              className="inline-flex rounded-full border border-zinc-600 px-4 py-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-100 transition hover:border-zinc-400 hover:bg-zinc-900"
+            >
+              {copy.privacy}
+            </Link>
+          ) : null}
         </div>
         <p className="text-xs uppercase tracking-[0.25em] text-zinc-300">{localizedApp.tagline}</p>
         <h1 className="mt-4 text-4xl font-semibold text-white md:text-5xl">{localizedApp.name}</h1>
