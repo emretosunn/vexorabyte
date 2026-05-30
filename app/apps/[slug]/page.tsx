@@ -31,18 +31,20 @@ export default async function AppDetailPage({ params, searchParams }: AppDetailP
       ? {
           home: "Ana Sayfa",
           careers: "Kariyer",
+          appStore: "App Store'da İncele",
           playStore: "Play Store'da İncele",
           privacy: "Gizlilik Politikası",
           features: "Özellikler",
-          shots: "Play Store Görselleri",
+          shots: "Uygulama Görselleri",
         }
       : {
           home: "Home",
           careers: "Careers",
+          appStore: "View on App Store",
           playStore: "View on Play Store",
           privacy: "Privacy Policy",
           features: "Features",
-          shots: "Play Store Screenshots",
+          shots: "App Screenshots",
         };
 
   return (
@@ -64,17 +66,29 @@ export default async function AppDetailPage({ params, searchParams }: AppDetailP
       <section className="mt-28 rounded-3xl border border-violet-500/20 bg-zinc-950/75 p-6 shadow-[0_0_30px_rgba(124,58,237,0.1)] backdrop-blur-sm md:mt-20 md:p-10">
         <div className="mb-6 flex flex-wrap items-center gap-3 md:gap-4">
           <Image src={localizedApp.logo} alt={`${localizedApp.name} logosu`} width={56} height={56} className="rounded-2xl" />
-          <a
-            href={localizedApp.playStoreUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex rounded-full border border-zinc-600 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-100 transition hover:border-zinc-400 hover:bg-zinc-900 sm:text-xs sm:tracking-[0.16em]"
-          >
-            {copy.playStore}
-          </a>
-          {app.slug === "vellum" ? (
+          {app.platform !== "ios" && localizedApp.playStoreUrl && (
+            <a
+              href={localizedApp.playStoreUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex rounded-full border border-zinc-600 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-100 transition hover:border-zinc-400 hover:bg-zinc-900 sm:text-xs sm:tracking-[0.16em]"
+            >
+              {copy.playStore}
+            </a>
+          )}
+          {app.platform !== "android" && localizedApp.appStoreUrl && (
+            <a
+              href={localizedApp.appStoreUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex rounded-full border border-zinc-600 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-100 transition hover:border-zinc-400 hover:bg-zinc-900 sm:text-xs sm:tracking-[0.16em]"
+            >
+              {copy.appStore}
+            </a>
+          )}
+          {(app.slug === "vellum" || app.slug === "falora") ? (
             <Link
-              href="/vellum/privacy"
+              href={`/${app.slug}/privacy`}
               className="inline-flex rounded-full border border-zinc-600 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-100 transition hover:border-zinc-400 hover:bg-zinc-900 sm:text-xs sm:tracking-[0.16em]"
             >
               {copy.privacy}

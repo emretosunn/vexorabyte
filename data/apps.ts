@@ -11,7 +11,9 @@ export type AppInfo = {
   tagline: LocalizedText;
   description: LocalizedText;
   longDescription: LocalizedText;
-  playStoreUrl: string;
+  platform: "android" | "ios" | "both";
+  playStoreUrl?: string;
+  appStoreUrl?: string;
   logo: string;
   features: LocalizedText[];
   stats: {
@@ -24,8 +26,64 @@ export type AppInfo = {
 
 export const apps: AppInfo[] = [
   {
+    slug: "falora",
+    name: "Falora",
+    tagline: {
+      tr: "Evrenin sesini dinle.",
+      en: "Listen to the voice of the universe.",
+    },
+    description: {
+      tr: "Burçlar, tarot ve günlük fallarla kişisel yolculuğunu keşfet. Falora, içsel dünyanla bağlantı kurmanı sağlayan modern bir mistik rehberdir.",
+      en: "Discover your personal journey with horoscopes, tarot, and daily readings. Falora is a modern mystical guide that helps you connect with your inner world.",
+    },
+    longDescription: {
+      tr: "Evrenin sana ne söylediğini merak ediyorsan, Falora tam da bunun için burada. Günlük burç yorumları, tarot çekimleri ve kişisel astroloji haritanla ruhsal yolculuğuna rehberlik eder. Falora; mistik bilgeliği modern tasarımla buluşturarak sana özel, derin ve anlamlı bir deneyim sunar.",
+      en: "If you wonder what the universe is telling you, Falora is here for exactly that. It guides your spiritual journey with daily horoscope readings, tarot draws, and your personal astrology chart. Falora merges mystical wisdom with modern design to offer you a unique, deep, and meaningful experience.",
+    },
+    platform: "ios",
+    appStoreUrl: "https://apps.apple.com/app/falora/id0000000000",
+    logo: "/gorseller/faloralogo.png",
+    features: [
+      {
+        tr: "Günlük, haftalık ve aylık kişiselleştirilmiş burç yorumları",
+        en: "Daily, weekly, and monthly personalized horoscope readings",
+      },
+      {
+        tr: "İnteraktif tarot kartı çekimi ve yorumları",
+        en: "Interactive tarot card draws with detailed interpretations",
+      },
+      {
+        tr: "Doğum haritası ve yükselen burç analizi",
+        en: "Birth chart and rising sign analysis",
+      },
+      {
+        tr: "Minimalist ve atmosferik tasarım, karanlık tema",
+        en: "Minimalist and atmospheric design with a dark theme",
+      },
+    ],
+    stats: [
+      {
+        label: { tr: "Kategori", en: "Category" },
+        value: "Lifestyle",
+        detail: { tr: "Yaşam Tarzı", en: "Lifestyle" },
+      },
+      {
+        label: { tr: "İçerik", en: "Content rating" },
+        value: "Everyone",
+        detail: { tr: "Tüm kullanıcılar için uygun", en: "Suitable for everyone" },
+      },
+      {
+        label: { tr: "Platform", en: "Platform" },
+        value: "iOS",
+        detail: { tr: "App Store'da mevcut", en: "Available on the App Store" },
+      },
+    ],
+    screenshots: [],
+  },
+  {
     slug: "vellum",
     name: "Vellum",
+    platform: "android",
     tagline: {
       tr: "Kelimelerin mirasa dönüştüğü yer.",
       en: "Where words become legacy.",
@@ -90,7 +148,9 @@ export type LocalizedApp = {
   tagline: string;
   description: string;
   longDescription: string;
-  playStoreUrl: string;
+  platform: "android" | "ios" | "both";
+  playStoreUrl?: string;
+  appStoreUrl?: string;
   logo: string;
   features: string[];
   stats: {
@@ -112,7 +172,9 @@ export function localizeApp(app: AppInfo, locale: Locale): LocalizedApp {
     tagline: app.tagline[locale],
     description: app.description[locale],
     longDescription: app.longDescription[locale],
+    platform: app.platform,
     playStoreUrl: app.playStoreUrl,
+    appStoreUrl: app.appStoreUrl,
     logo: app.logo,
     features: app.features.map((feature) => feature[locale]),
     stats: app.stats.map((stat) => ({
